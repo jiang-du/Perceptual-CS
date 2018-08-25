@@ -1,0 +1,628 @@
+name: "Perceptual-CS"
+layer
+{
+  name: "data"
+  type: "HDF5Data"
+  top: "data"
+  top: "label"
+  hdf5_data_param
+  {
+    source: "/home/jiangdu/caffe/examples/Perceptual-CS/data/train.txt"
+    batch_size: 5
+  }
+  include:
+  {
+    phase: TRAIN
+  }
+}
+layer
+{
+  name: "data"
+  type: "HDF5Data"
+  top: "data"
+  top: "label"
+  hdf5_data_param
+  {
+    source: "/home/jiangdu/caffe/examples/Perceptual-CS/data/test.txt"
+    batch_size: 2
+  }
+  include:
+  {
+    phase: TEST
+  }
+}
+layer {
+  name: "conv1"
+  type: "Convolution"
+  bottom: "data"
+  top: "conv1"
+  param {
+    lr_mult: 1
+  }
+  param {
+    lr_mult: 2
+  }
+  convolution_param {
+    num_output: 10
+    pad: 0
+    kernel_size: 32
+    stride: 16
+    weight_filler {
+      type: "gaussian"
+      std: 0.1
+    }
+    bias_filler {
+      type: "constant"
+      value: 0
+    }
+  }
+}
+layer
+{
+  name: "upsample"
+  type: "Deconvolution"
+  bottom: "conv1"
+  top: "upsample"
+  param
+  {
+    lr_mult: 1
+    decay_mult: 1
+  }
+  param
+  {
+    lr_mult: 2
+    decay_mult: 0
+  }
+  convolution_param
+  {
+    kernel_size: 32
+    stride: 16
+    num_output: 1
+    #group: {{C}}
+    #pad: {{ceil((factor - 1) / 2.)}}
+    weight_filler:
+    {
+      type: "gaussian"
+      std: 0.1
+      # type: "constant"
+      # value: 0.25
+    }
+    bias_filler
+    {
+      type: "constant"
+      value: 0
+    }
+  }
+}
+
+############################## ResNet ##############################
+layer {
+  name: "conv1_r"
+  type: "Convolution"
+  bottom: "upsample"
+  top: "conv1_r"
+  param {
+    lr_mult: 1
+  }
+  convolution_param {
+    num_output: 64
+    pad: 5
+    kernel_size: 11
+    stride: 1
+    weight_filler {
+      type: "gaussian"
+      std: 0.001
+    }
+    bias_term: false
+  }
+}
+layer {
+  name: "relu1"
+  type: "ReLU"
+  bottom: "conv1_r"
+  top: "conv1_r"
+}
+
+layer {
+  name: "conv2_r"
+  type: "Convolution"
+  bottom: "conv1_r"
+  top: "conv2_r"
+  param {
+    lr_mult: 1
+  }
+  convolution_param {
+    num_output: 32
+    pad: 0
+    kernel_size: 1
+    stride: 1
+    weight_filler {
+      type: "gaussian"
+      std: 0.001
+    }
+  bias_term: false
+  }
+}
+
+layer {
+  name: "relu2"
+  type: "ReLU"
+  bottom: "conv2_r"
+  top: "conv2_r"
+}
+
+layer {
+  name: "conv3_r"
+  type: "Convolution"
+  bottom: "conv2_r"
+  top: "conv3_r"
+  param {
+    lr_mult: 0.1
+  }
+  convolution_param {
+    num_output: 1
+    pad: 3
+    kernel_size: 7
+    stride: 1
+    weight_filler {
+      type: "gaussian"
+      std: 0.001
+    }
+    bias_term: false
+  }
+}
+layer {
+        bottom: "upsample"
+        bottom: "conv3_r"
+        top: "res1"
+        name: "res1"
+        type: "Eltwise"
+} 
+############################## End ResNet ##############################
+
+
+############################## Perceptual Loss for output ##############################
+layer {
+  bottom: "res1"
+  top: "conv1_1a"
+  name: "conv1_1a"
+  type: "Convolution"
+  param {
+    lr_mult: 0
+  }
+  param {
+    lr_mult: 0
+  }
+  convolution_param {
+    num_output: 64
+    pad: 0
+    kernel_size: 3
+  }
+}
+layer {
+  bottom: "conv1_1a"
+  top: "conv1_1a"
+  name: "relu1_1a"
+  type: "ReLU"
+}
+layer {
+  bottom: "conv1_1a"
+  top: "conv1_2a"
+  name: "conv1_2a"
+  type: "Convolution"
+  param {
+    lr_mult: 0
+  }
+  param {
+    lr_mult: 0
+  }
+  convolution_param {
+    num_output: 64
+    pad: 0
+    kernel_size: 3
+  }
+}
+layer {
+  bottom: "conv1_2a"
+  top: "conv1_2a"
+  name: "relu1_2a"
+  type: "ReLU"
+}
+layer {
+  bottom: "conv1_2a"
+  top: "pool1a"
+  name: "pool1a"
+  type: "Pooling"
+  pooling_param {
+    pool: MAX
+    kernel_size: 2
+    stride: 2
+  }
+}
+layer {
+  bottom: "pool1a"
+  top: "conv2_1a"
+  name: "conv2_1a"
+  type: "Convolution"
+  param {
+    lr_mult: 0
+  }
+  param {
+    lr_mult: 0
+  }
+  convolution_param {
+    num_output: 128
+    pad: 0
+    kernel_size: 3
+  }
+}
+layer {
+  bottom: "conv2_1a"
+  top: "conv2_1a"
+  name: "relu2_1a"
+  type: "ReLU"
+}
+layer {
+  bottom: "conv2_1a"
+  top: "conv2_2a"
+  name: "conv2_2a"
+  type: "Convolution"
+  param {
+    lr_mult: 0
+  }
+  param {
+    lr_mult: 0
+  }
+  convolution_param {
+    num_output: 128
+    pad: 1
+    kernel_size: 3
+  }
+}
+layer {
+  bottom: "conv2_2a"
+  top: "conv2_2a"
+  name: "relu2_2a"
+  type: "ReLU"
+}
+layer {
+  bottom: "conv2_2a"
+  top: "pool2a"
+  name: "pool2a"
+  type: "Pooling"
+  pooling_param {
+    pool: MAX
+    kernel_size: 2
+    stride: 2
+  }
+}
+layer {
+  bottom: "pool2a"
+  top: "conv3_1a"
+  name: "conv3_1a"
+  type: "Convolution"
+  param {
+    lr_mult: 0
+  }
+  param {
+    lr_mult: 0
+  }
+  convolution_param {
+    num_output: 256
+    pad: 1
+    kernel_size: 3
+  }
+}
+layer {
+  bottom: "conv3_1a"
+  top: "conv3_1a"
+  name: "relu3_1a"
+  type: "ReLU"
+}
+layer {
+  bottom: "conv3_1a"
+  top: "conv3_2a"
+  name: "conv3_2a"
+  type: "Convolution"
+  param {
+    lr_mult: 0
+  }
+  param {
+    lr_mult: 0
+  }
+  convolution_param {
+    num_output: 256
+    pad: 1
+    kernel_size: 3
+  }
+}
+layer {
+  bottom: "conv3_2a"
+  top: "conv3_2a"
+  name: "relu3_2a"
+  type: "ReLU"
+}
+layer {
+  bottom: "conv3_2a"
+  top: "conv3_3a"
+  name: "conv3_3a"
+  type: "Convolution"
+  param {
+    lr_mult: 0
+  }
+  param {
+    lr_mult: 0
+  }
+  convolution_param {
+    num_output: 256
+    pad: 1
+    kernel_size: 3
+  }
+}
+layer {
+  bottom: "conv3_3a"
+  top: "conv3_3a"
+  name: "relu3_3a"
+  type: "ReLU"
+}
+layer {
+  bottom: "conv3_3a"
+  top: "conv3_4a"
+  name: "conv3_4a"
+  type: "Convolution"
+  param {
+    lr_mult: 0
+  }
+  param {
+    lr_mult: 0
+  }
+  convolution_param {
+    num_output: 256
+    pad: 1
+    kernel_size: 3
+  }
+}
+layer {
+  bottom: "conv3_4a"
+  top: "conv3_4a"
+  name: "relu3_4a"
+  type: "ReLU"
+}
+layer {
+  bottom: "conv3_4a"
+  top: "pool3a"
+  name: "pool3a"
+  type: "Pooling"
+  pooling_param {
+    pool: MAX
+    kernel_size: 2
+    stride: 2
+  }
+}
+############################## Perceptual Loss for label ##############################
+layer {
+  bottom: "label"
+  top: "conv1_1b"
+  name: "conv1_1b"
+  type: "Convolution"
+  param {
+    lr_mult: 0
+  }
+  param {
+    lr_mult: 0
+  }
+  convolution_param {
+    num_output: 64
+    pad: 0
+    kernel_size: 3
+  }
+}
+layer {
+  bottom: "conv1_1b"
+  top: "conv1_1b"
+  name: "relu1_1b"
+  type: "ReLU"
+}
+layer {
+  bottom: "conv1_1b"
+  top: "conv1_2b"
+  name: "conv1_2b"
+  type: "Convolution"
+  param {
+    lr_mult: 0
+  }
+  param {
+    lr_mult: 0
+  }
+  convolution_param {
+    num_output: 64
+    pad: 0
+    kernel_size: 3
+  }
+}
+layer {
+  bottom: "conv1_2b"
+  top: "conv1_2b"
+  name: "relu1_2b"
+  type: "ReLU"
+}
+layer {
+  bottom: "conv1_2b"
+  top: "pool1b"
+  name: "pool1b"
+  type: "Pooling"
+  pooling_param {
+    pool: MAX
+    kernel_size: 2
+    stride: 2
+  }
+}
+layer {
+  bottom: "pool1b"
+  top: "conv2_1b"
+  name: "conv2_1b"
+  type: "Convolution"
+  param {
+    lr_mult: 0
+  }
+  param {
+    lr_mult: 0
+  }
+  convolution_param {
+    num_output: 128
+    pad: 0
+    kernel_size: 3
+  }
+}
+layer {
+  bottom: "conv2_1b"
+  top: "conv2_1b"
+  name: "relu2_1b"
+  type: "ReLU"
+}
+layer {
+  bottom: "conv2_1b"
+  top: "conv2_2b"
+  name: "conv2_2b"
+  type: "Convolution"
+  param {
+    lr_mult: 0
+  }
+  param {
+    lr_mult: 0
+  }
+  convolution_param {
+    num_output: 128
+    pad: 1
+    kernel_size: 3
+  }
+}
+layer {
+  bottom: "conv2_2b"
+  top: "conv2_2b"
+  name: "relu2_2b"
+  type: "ReLU"
+}
+layer {
+  bottom: "conv2_2b"
+  top: "pool2b"
+  name: "pool2b"
+  type: "Pooling"
+  pooling_param {
+    pool: MAX
+    kernel_size: 2
+    stride: 2
+  }
+}
+layer {
+  bottom: "pool2b"
+  top: "conv3_1b"
+  name: "conv3_1b"
+  type: "Convolution"
+  param {
+    lr_mult: 0
+  }
+  param {
+    lr_mult: 0
+  }
+  convolution_param {
+    num_output: 256
+    pad: 1
+    kernel_size: 3
+  }
+}
+layer {
+  bottom: "conv3_1b"
+  top: "conv3_1b"
+  name: "relu3_1b"
+  type: "ReLU"
+}
+layer {
+  bottom: "conv3_1b"
+  top: "conv3_2b"
+  name: "conv3_2b"
+  type: "Convolution"
+  param {
+    lr_mult: 0
+  }
+  param {
+    lr_mult: 0
+  }
+  convolution_param {
+    num_output: 256
+    pad: 1
+    kernel_size: 3
+  }
+}
+layer {
+  bottom: "conv3_2b"
+  top: "conv3_2b"
+  name: "relu3_2b"
+  type: "ReLU"
+}
+layer {
+  bottom: "conv3_2b"
+  top: "conv3_3b"
+  name: "conv3_3b"
+  type: "Convolution"
+  param {
+    lr_mult: 0
+  }
+  param {
+    lr_mult: 0
+  }
+  convolution_param {
+    num_output: 256
+    pad: 1
+    kernel_size: 3
+  }
+}
+layer {
+  bottom: "conv3_3b"
+  top: "conv3_3b"
+  name: "relu3_3b"
+  type: "ReLU"
+}
+layer {
+  bottom: "conv3_3b"
+  top: "conv3_4b"
+  name: "conv3_4b"
+  type: "Convolution"
+  param {
+    lr_mult: 0
+  }
+  param {
+    lr_mult: 0
+  }
+  convolution_param {
+    num_output: 256
+    pad: 1
+    kernel_size: 3
+  }
+}
+layer {
+  bottom: "conv3_4b"
+  top: "conv3_4b"
+  name: "relu3_4b"
+  type: "ReLU"
+}
+layer {
+  bottom: "conv3_4b"
+  top: "pool3b"
+  name: "pool3b"
+  type: "Pooling"
+  pooling_param {
+    pool: MAX
+    kernel_size: 2
+    stride: 2
+  }
+}
+############################## End Perceptual Loss ##############################
+layer
+{
+  name: "loss"
+  type: "EuclideanLoss"
+  bottom: "pool3a"
+  bottom: "pool3b"
+  top: "loss"
+}

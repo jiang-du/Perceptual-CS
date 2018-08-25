@@ -1,0 +1,12 @@
+net: "/home/jiangdu/caffe/examples/Perceptual-CS/train/PCS_VGG34_04.prototxt"
+test_iter: 100
+test_interval: 500
+base_lr: 3e-9
+momentum: 0.9
+weight_decay: 0
+lr_policy: "fixed"
+display: 10
+max_iter: 1000000
+snapshot: 1000
+snapshot_prefix: "/home/jiangdu/caffe/examples/Perceptual-CS/train/snapshot/PCS_VGG34_04"
+solver_mode: GPU

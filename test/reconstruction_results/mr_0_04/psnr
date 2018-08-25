@@ -1,0 +1,29 @@
+Measurement Rate = 0.04 
+Cleared 0 solvers and 11 stand-alone nets
+
+     Monarch.tif: PSNR = 16.353657 dB, Time = 0.020381  seconds
+
+     Parrots.tif: PSNR = 17.091942 dB, Time = 0.013597  seconds
+
+     barbara.tif: PSNR = 16.873339 dB, Time = 0.009775  seconds
+
+       boats.tif: PSNR = 17.406349 dB, Time = 0.012247  seconds
+
+   cameraman.tif: PSNR = 16.816790 dB, Time = 0.009527  seconds
+
+ fingerprint.png: PSNR = 14.351271 dB, Time = 0.022834  seconds
+
+  flinstones.png: PSNR = 15.160106 dB, Time = 0.022971  seconds
+
+     foreman.tif: PSNR = 18.134529 dB, Time = 0.009566  seconds
+
+       house.tif: PSNR = 17.623085 dB, Time = 0.013714  seconds
+
+     lena256.tif: PSNR = 17.304918 dB, Time = 0.006401  seconds
+
+  peppers256.png: PSNR = 16.831379 dB, Time = 0.013233  seconds
+Elapsed time is 1.278254 seconds.
+16.7225
+ All reconstruction results are saved in ./reconstruction_results/mr_0_04/
+
+vgg34
