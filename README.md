@@ -32,7 +32,7 @@ NVidia GeForce GTX Titan XP GPUs
 ## Related works ##
 These are some related work done by the authors' team related to Perceptual Compressive Sensing:
 
-[1] [Fully Convolutional Measurement Network for Compressive Sensing Image Reconstruction](https://arxiv.org/abs/1712.01641), Neurocomputing, 2018. (in press)
+[1] [Fully Convolutional Measurement Network for Compressive Sensing Image Reconstruction](https://doi.org/10.1016/j.neucom.2018.04.084), Neurocomputing, 2018.
 
 [2] [Full Image Recover for Block-Based Compressive Sensing](https://arxiv.org/abs/1802.00179), IEEE International Conference on Multimedia and Expo (ICME), 2018. (in press)
 
