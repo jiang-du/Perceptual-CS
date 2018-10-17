@@ -73,8 +73,6 @@ Perceptual CS is used in the following publication(s):
 
 Video Demo: [https://youtu.be/W3P2a21hpPY](https://youtu.be/W3P2a21hpPY)
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/W3P2a21hpPY" frameborder="0" allowfullscreen></iframe>
-
 ## Citing perceptual CS ##
 Please cite our paper in your publications if it helps your research:
 
