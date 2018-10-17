@@ -50,7 +50,7 @@ NVidia GeForce GTX Titan XP GPUs
 3. Croping the images to 256*256 size. Then convert the format into h5 files.
 4. Download [VGG-19 pre-trained model](http://www.robots.ox.ac.uk/~vgg/software/very_deep/caffe/VGG_ILSVRC_19_layers.caffemodel).
 5. Before running the code, modify the file locations, for example, caffe dictionary, etc.
-6. Training the model, or download the pre-trained models. (will be available in the future)
+6. Training the model, or download the pre-trained models. (Send email to authors if needed.)
 7. Test the model. Running test/test.m, modifying the test image file name according to the images tested.
 
 ## Related works ##
@@ -58,7 +58,7 @@ These are some related work done by the authors' team related to Perceptual Comp
 
 [1] [Fully Convolutional Measurement Network for Compressive Sensing Image Reconstruction](https://doi.org/10.1016/j.neucom.2018.04.084), Neurocomputing, 2018.
 
-[2] [Full Image Recover for Block-Based Compressive Sensing](https://arxiv.org/abs/1802.00179), IEEE International Conference on Multimedia and Expo (ICME), 2018. (in press)
+[2] [Full Image Recover for Block-Based Compressive Sensing](https://doi.org/10.1109/ICME.2018.8486521), IEEE International Conference on Multimedia and Expo (ICME), 2018.
 
 [3] [Adaptive Measurement Network for CS Image Reconstruction](https://link.springer.com/chapter/10.1007/978-981-10-7302-1_34), CCF Chinese Conference on Computer Vision (CCCV), 2017.
 
@@ -72,6 +72,8 @@ Perceptual CS is used in the following publication(s):
 [6] J. Du, et al. Color Image Reconstruction with Perceptual Compressive Sensing, The 24th International Conference on Pattern Recognition (ICPR), pp. 1512-1517, Aug. 2018. (in press)
 
 Video Demo: [https://youtu.be/W3P2a21hpPY](https://youtu.be/W3P2a21hpPY)
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/W3P2a21hpPY" frameborder="0" allowfullscreen></iframe>
 
 ## Citing perceptual CS ##
 Please cite our paper in your publications if it helps your research:
