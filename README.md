@@ -5,6 +5,8 @@ By [Jiang Du](https://github.com/jiang-du), [Xuemei Xie](http://web.xidian.edu.c
 
 To be presented in The First Chinese Conference on Pattern Recognition and Computer Vision (PRCV), Nov. 2018.
 
+ArXiv Pre-print version available [here](https://arxiv.org/abs/1802.00176 "Perceptual Compressive Sensing").
+
 ## Introduction ##
 
 Compressive sensing (CS) works to acquire measurements at sub-Nyquist rate and recover the scene images. Existing CS methods always recover the scene images in pixel level. This causes the smoothness of recovered images and lack of structure information, especially at a low measurement rate. To overcome this drawback, in this paper, we propose perceptual CS to obtain high-level structured recovery. Our task no longer focuses on pixel level. Instead, we work to make a better visual effect. In detail, we employ perceptual loss, defined on feature level, to enhance the structure information of the recovered images. Experiments show that our method achieves better visual results with stronger structure information than existing CS methods at the same measurement rate.
@@ -76,9 +78,11 @@ Video Demo: [https://youtu.be/W3P2a21hpPY](https://youtu.be/W3P2a21hpPY)
 ## Citing perceptual CS ##
 Please cite our paper in your publications if it helps your research:
 
-    @article{xie2018perceptual,
-      title={Perceptual Compressive Sensing},
-      author={Du, Jiang and Xie, Xuemei and Shi, Guangming and Wang, Chenye and Xu, Xun},
-      journal={arXiv preprint arXiv:1802.00176},
-      year={2018}
+    @InProceedings{du2018perceptual,
+    author = {Du, Jiang and Xie, Xuemei and Wang, Chenye and Shi, Guangming},
+    title = {Perceptual Compressive Sensing},
+    booktitle = {Chinese Conference on Pattern Recognition and Computer Vision (PRCV)},
+    doi={10.1007/978-3-030-03338-5_23}, 
+    month = {November},
+    year = {2018}
     }
