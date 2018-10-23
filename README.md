@@ -50,7 +50,7 @@ NVidia GeForce GTX Titan XP GPUs
 3. Croping the images to 256*256 size. Then convert the format into h5 files.
 4. Download [VGG-19 pre-trained model](http://www.robots.ox.ac.uk/~vgg/software/very_deep/caffe/VGG_ILSVRC_19_layers.caffemodel).
 5. Before running the code, modify the file locations, for example, caffe dictionary, etc.
-6. Training the model, or download the pre-trained models. (Send email to authors if needed.)
+6. Training the model, or download the pre-trained models. (Currently the trained models of FCMN [[1]](https://doi.org/10.1016/j.neucom.2018.04.084) is availbale.)
 7. Test the model. Running test/test.m, modifying the test image file name according to the images tested.
 
 ## Related works ##
