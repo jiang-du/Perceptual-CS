@@ -3,7 +3,7 @@
 ----------
 By [Jiang Du](https://github.com/jiang-du), [Xuemei Xie](http://web.xidian.edu.cn/xmxie/), Chenye Wang, [Guangming Shi](http://web.xidian.edu.cn/gmshi/)
 
-To be presented in The First Chinese Conference on Pattern Recognition and Computer Vision (PRCV), Nov. 2018.
+To be presented in The First Chinese Conference on Pattern Recognition and Computer Vision (PRCV), November 23-26, 2018. (oral presentation)
 
 ArXiv Pre-print version available [here](https://arxiv.org/abs/1802.00176 "Perceptual Compressive Sensing").
 
@@ -56,7 +56,7 @@ NVidia GeForce GTX Titan XP GPUs
 7. Test the model. Running test/test.m, modifying the test image file name according to the images tested.
 
 ## Related works ##
-These are some related work done by the authors' team related to Perceptual Compressive Sensing:
+These are some related work done by [Prof Xie](http://web.xidian.edu.cn/xmxie/)'s team related to Perceptual Compressive Sensing:
 
 [1] [Fully Convolutional Measurement Network for Compressive Sensing Image Reconstruction](https://doi.org/10.1016/j.neucom.2018.04.084), Neurocomputing, 2018.
 
@@ -68,12 +68,16 @@ These are some related work done by the authors' team related to Perceptual Comp
 
 [5] Color image compressive sensing network based on learned measurement matrix, submitted to BMVC 2018, rejected.
 
-## Applications ##
-Perceptual CS is used in the following publication(s):
-
-[6] J. Du, et al. Color Image Reconstruction with Perceptual Compressive Sensing, The 24th International Conference on Pattern Recognition (ICPR), pp. 1512-1517, Aug. 2018. (in press)
-
+[6] Color Image Reconstruction with Perceptual Compressive Sensing, The 24th International Conference on Pattern Recognition (ICPR), pp. 1512-1517, Aug. 2018. (in press).
 Video Demo: [https://youtu.be/W3P2a21hpPY](https://youtu.be/W3P2a21hpPY)
+
+[7] Refined Perceptual Loss for Video Compressive Sensing, submitted to ACML 2018, rejected.
+
+[8] Visualizing and Understanding of Learned Compressive Sensing with Residual Network, submitted to Neurocomputing, under review.
+
+[9] A Real-time Video Compressive Sensing with Fully Convolutional Network, submitted to NIPS 2018, rejected.
+
+[10] A Hybrid-3D Convolutional Network for Video Compressive Sensing, submitted to AAAI 2019, under review.
 
 ## Citing perceptual CS ##
 Please cite our paper in your publications if it helps your research:
