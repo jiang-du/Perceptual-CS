@@ -3,9 +3,9 @@
 ----------
 By [Jiang Du](https://github.com/jiang-du), [Xuemei Xie](http://web.xidian.edu.cn/xmxie/), Chenye Wang, [Guangming Shi](http://web.xidian.edu.cn/gmshi/)
 
-To be presented in The First Chinese Conference on Pattern Recognition and Computer Vision (PRCV), November 23-26, 2018. (oral presentation)
+This paper was presented in The First Chinese Conference on Pattern Recognition and Computer Vision (PRCV), November 23-26, 2018. (oral presentation)
 
-ArXiv Pre-print version available [here](https://arxiv.org/abs/1802.00176 "Perceptual Compressive Sensing").
+Published paper available [here](https://link.springer.com/chapter/10.1007/978-3-030-03338-5_23 "Perceptual Compressive Sensing").
 
 ## Introduction ##
 
