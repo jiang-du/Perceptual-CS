@@ -51,7 +51,7 @@ NVidia GeForce GTX Titan XP GPUs
 3. Croping the images to 256*256 size. Then convert the format into h5 files.
 4. Download [VGG-19 pre-trained model](http://www.robots.ox.ac.uk/~vgg/software/very_deep/caffe/VGG_ILSVRC_19_layers.caffemodel).
 5. Before running the code, modify the file locations, for example, caffe dictionary, etc.
-6. Training the model, or download the pre-trained models. (Currently the trained models of FCMN [[1]](https://doi.org/10.1016/j.neucom.2018.04.084) is availbale.)
+6. Training the model, or download the pre-trained models. (The trained models of FCMN [[1]](https://doi.org/10.1016/j.neucom.2018.04.084) is availbale in "trained_models" and models of this paper is available at Google Drive. [Click here to get the models](https://github.com/jiang-du/Perceptual-CS/blob/master/trained_models/Get_PCS_models.md).) Carefully choose the right deploy prototxt file according to the measurement rate.
 7. Test the model. Running test/test.m, modifying the test image file name according to the images tested.
 
 ## Related works ##
@@ -74,11 +74,11 @@ Video Demo: [https://youtu.be/W3P2a21hpPY](https://youtu.be/W3P2a21hpPY)
 
 [8] X. Xie, *et al.* Visualizing and Understanding of Learned Compressive Sensing with Residual Network, submitted to Neurocomputing, rejected.
 
-[9] Z. Zhao, *et al.* A Real-time Video Compressive Sensing with Fully Convolutional Network, submitted to NIPS 2018, rejected.
+[9] Z. Zhao, *et al.* A Real-time Video Compressive Sensing with Fully Convolutional Network, submitted to NeurIPS 2018, rejected.
 
 [10] Z. Zhao, *et al.* A Hybrid-3D Convolutional Network for Video Compressive Sensing, submitted to AAAI 2019, rejected, and submitted to CVPR 2019.
 
-[11] X. Xie, *et al.* Perceptual Spatial-temporal Network for Video Compressive Sensing, to be submit to ICME 2019.
+[11] X. Xie, *et al.* Perceptual Spatial-temporal Video Compressive Sensing Network, submitted to ICME 2019.
 
 ## Citing perceptual CS ##
 Please cite our paper in your publications if it helps your research:
@@ -86,8 +86,11 @@ Please cite our paper in your publications if it helps your research:
     @InProceedings{du2018perceptual,
     author = {Du, Jiang and Xie, Xuemei and Wang, Chenye and Shi, Guangming},
     title = {Perceptual Compressive Sensing},
-    booktitle = {Chinese Conference on Pattern Recognition and Computer Vision (PRCV)},
-    doi={10.1007/978-3-030-03338-5_23}, 
+    booktitle = {Pattern Recognition and Computer Vision},
+    year = {2018},
     month = {November},
-    year = {2018}
+    doi = {10.1007/978-3-030-03338-5_23}, 
+	pages = {268--279},
+	isbn = {978-3-030-03338-5},
+	publisher = {Springer International Publishing}
     }
