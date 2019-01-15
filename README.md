@@ -55,7 +55,7 @@ NVidia GeForce GTX Titan XP GPUs
 7. Test the model. Running test/test.m, modifying the test image file name according to the images tested.
 
 ## Related works ##
-These are some related work done by [Prof Xie](http://web.xidian.edu.cn/xmxie/)'s team related to Perceptual Compressive Sensing:
+These are some work related to Perceptual Compressive Sensing:
 
 [1] J. Du, *et al.* [Fully Convolutional Measurement Network for Compressive Sensing Image Reconstruction](https://doi.org/10.1016/j.neucom.2018.04.084), Neurocomputing, 2018.
 
@@ -63,22 +63,8 @@ These are some related work done by [Prof Xie](http://web.xidian.edu.cn/xmxie/)'
 
 [3] X. Xie, *et al.* [Adaptive Measurement Network for CS Image Reconstruction](https://link.springer.com/chapter/10.1007/978-981-10-7302-1_34), CCF Chinese Conference on Computer Vision (CCCV), 2017.
 
-[4] C. Wang, *et al.* Color image compressive sensing network with channel-shared measurement, submitted to IJCAI 2018, rejected.
-
-[5] C. Wang, *et al.* Color image compressive sensing network based on learned measurement matrix, submitted to BMVC 2018, rejected.
-
-[6] J. Du, *et al.* [Color Image Reconstruction with Perceptual Compressive Sensing](https://doi.org/10.1109/ICPR.2018.8546222), The 24th International Conference on Pattern Recognition (ICPR), pp. 1512-1517, Aug. 2018.
+[4] J. Du, *et al.* [Color Image Reconstruction with Perceptual Compressive Sensing](https://doi.org/10.1109/ICPR.2018.8546222), The 24th International Conference on Pattern Recognition (ICPR), pp. 1512-1517, Aug. 2018.
 Video Demo: [https://youtu.be/W3P2a21hpPY](https://youtu.be/W3P2a21hpPY)
-
-[7] X. Xie, *et al.* Refined Perceptual Loss for Video Compressive Sensing, submitted to ACML 2018, rejected.
-
-[8] X. Xie, *et al.* Visualizing and Understanding of Learned Compressive Sensing with Residual Network, submitted to Neurocomputing, rejected.
-
-[9] Z. Zhao, *et al.* A Real-time Video Compressive Sensing with Fully Convolutional Network, submitted to NeurIPS 2018, rejected.
-
-[10] Z. Zhao, *et al.* A Hybrid-3D Convolutional Network for Video Compressive Sensing, submitted to AAAI 2019, rejected, and submitted to CVPR 2019.
-
-[11] X. Xie, *et al.* Perceptual Spatial-temporal Video Compressive Sensing Network, submitted to ICME 2019.
 
 ## Citing perceptual CS ##
 Please cite our paper in your publications if it helps your research:
