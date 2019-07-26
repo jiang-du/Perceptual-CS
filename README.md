@@ -14,13 +14,13 @@ Compressive sensing (CS) works to acquire measurements at sub-Nyquist rate and r
 
 The architecture consists of two parts: compressive sensing network and perceptual loss network.
 
-![](https://raw.githubusercontent.com/jiang-du/Perceptual-CS/master/img/Framework.png)
+![](https://github.com/jiang-du/Perceptual-CS/raw/master/img/Framework.png)
 
 ## Experimental Results ##
 
 Measurement Rate: 4%
 
-![](https://raw.githubusercontent.com/jiang-du/Perceptual-CS/master/img/MR-4.png)
+![](https://github.com/jiang-du/Perceptual-CS/raw/master/img/MR-4.png)
 
 (1) Block effect also occurs in Fig 4 (c) in DR2-Net.
 
@@ -36,35 +36,41 @@ It should be noted that, even if PSNR is worse with perceptual loss, the structu
 
 ## Platform Setup ##
 
-Ubuntu 16.04 operation system
+Hardawre:
 
-Caffe (The authors trained perceptual CS on the SSD version of caffe. [Available here](https://github.com/weiliu89/caffe/tree/ssd "caffe for SSD").)
+- NVidia GeForce GTX Titan XP GPUs * 4 (with CUDA and Cudnn)
 
-MATLAB R2014b
+Software:
 
-NVidia GeForce GTX Titan XP GPUs
+- Ubuntu 16.04
+
+- Caffe (The authors trained perceptual CS on the SSD version of caffe. [Available here](https://github.com/weiliu89/caffe/tree/ssd "caffe for SSD").)
+
+- MATLAB R2014b
 
 ## Steps ##
 
 1. Install [caffe](https://github.com/BVLC/caffe) on ubuntu system with MATLAB support.
 2. Download [DIV2K](https://data.vision.ee.ethz.ch/cvl/DIV2K/) dataset and use the full resolution images.
-3. Croping the images to 256*256 size. Then convert the format into h5 files.
+3. Crop the images to 256*256 size. Then convert the format into h5 files.
 4. Download [VGG-19 pre-trained model](http://www.robots.ox.ac.uk/~vgg/software/very_deep/caffe/VGG_ILSVRC_19_layers.caffemodel).
 5. Before running the code, modify the file locations, for example, caffe dictionary, etc.
 6. Training the model, or download the pre-trained models. (The trained models of FCMN [[1]](https://doi.org/10.1016/j.neucom.2018.04.084) is availbale in "trained_models" and models of this paper is available at Google Drive. [Click here to get the models](https://github.com/jiang-du/Perceptual-CS/blob/master/trained_models/Get_PCS_models.md).) Carefully choose the right deploy prototxt file according to the measurement rate.
-7. Test the model. Running test/test.m, modifying the test image file name according to the images tested.
+7. Test the model. Running "test/test.m" with MATLAB, modifying the test image file name according to the images tested.
 
 ## Related works ##
-These are some work related to Perceptual Compressive Sensing:
+Some work related to Perceptual Compressive Sensing in the authors' lab:
 
-[1] J. Du, *et al.* [Fully Convolutional Measurement Network for Compressive Sensing Image Reconstruction](https://doi.org/10.1016/j.neucom.2018.04.084), Neurocomputing, 2018.
+[1] J. Du, X. Xie, C. Wang, *et al.* [Fully Convolutional Measurement Network for Compressive Sensing Image Reconstruction](https://doi.org/10.1016/j.neucom.2018.04.084), Neurocomputing, 328, pp.105-112, 2019.
 
-[2] X. Xie, *et al.* [Full Image Recover for Block-Based Compressive Sensing](https://doi.org/10.1109/ICME.2018.8486521), IEEE International Conference on Multimedia and Expo (ICME), 2018.
+[2] X. Xie, C. Wang, J. Du, G. Shi. [Full Image Recover for Block-Based Compressive Sensing](https://doi.org/10.1109/ICME.2018.8486521), IEEE International Conference on Multimedia and Expo (ICME), 2018.
 
-[3] X. Xie, *et al.* [Adaptive Measurement Network for CS Image Reconstruction](https://link.springer.com/chapter/10.1007/978-981-10-7302-1_34), CCF Chinese Conference on Computer Vision (CCCV), 2017.
+[3] X. Xie, Y. Wang, G. Shi, *et al.* [Adaptive Measurement Network for CS Image Reconstruction](https://doi.org/10.1007/978-981-10-7302-1_34), CCF Chinese Conference on Computer Vision (CCCV), 2017.
 
-[4] J. Du, *et al.* [Color Image Reconstruction with Perceptual Compressive Sensing](https://doi.org/10.1109/ICPR.2018.8546222), The 24th International Conference on Pattern Recognition (ICPR), pp. 1512-1517, Aug. 2018.
+[4] J. Du, X. Xie, C. Wang, G. Shi. [Color Image Reconstruction with Perceptual Compressive Sensing](https://doi.org/10.1109/ICPR.2018.8546222), The 24th International Conference on Pattern Recognition (ICPR), pp. 1512-1517, Aug. 2018.
 Video Demo: [https://youtu.be/W3P2a21hpPY](https://youtu.be/W3P2a21hpPY)
+
+[5] Z. Zhao, X. Xie, C. Wang, *et al.* [Visualizing and understanding of learned compressive sensing with residual network](https://doi.org/10.1016/j.neucom.2019.05.043), Neurocomputing, 2019. (in press)
 
 ## Citing perceptual CS ##
 Please cite our paper in your publications if it helps your research:
