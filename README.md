@@ -70,7 +70,7 @@ Some work related to Perceptual Compressive Sensing in the authors' lab:
 [4] J. Du, X. Xie, C. Wang, G. Shi. [Color Image Reconstruction with Perceptual Compressive Sensing](https://doi.org/10.1109/ICPR.2018.8546222), The 24th International Conference on Pattern Recognition (ICPR), pp. 1512-1517, Aug. 2018.
 Video Demo: [https://youtu.be/W3P2a21hpPY](https://youtu.be/W3P2a21hpPY)
 
-[5] Z. Zhao, X. Xie, C. Wang, *et al.* [Visualizing and understanding of learned compressive sensing with residual network](https://doi.org/10.1016/j.neucom.2019.05.043), Neurocomputing, 2019. (in press)
+[5] Z. Zhao, X. Xie, C. Wang, *et al.* [Visualizing and understanding of learned compressive sensing with residual network](https://doi.org/10.1016/j.neucom.2019.05.043), Neurocomputing, 359, pp.185-198, 2019.
 
 ## Citing perceptual CS ##
 Please cite our paper in your publications if it helps your research:
